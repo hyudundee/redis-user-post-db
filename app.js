@@ -76,6 +76,12 @@ app.post('/user/add', function(req, res, next) {
   })
 })
 
+// delete user
+app.delete('/user/delete/:id', function(req, res, next){
+  client.del(req.params.id)
+  res.redirect('/')
+})
+
 app.listen(port, function() {
   console.log(`Server is running on port ${port}`)
 })

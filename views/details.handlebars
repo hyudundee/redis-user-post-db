@@ -4,3 +4,7 @@
   <li><strong>Phone:</strong>{{user.phone}}</li>
 </ul>
 <a class="btn btn-primary" href="/">Back</a>
+
+<form method="POST" action="/user/delete/{{user.id}}?_method=DELETE">
+  <input type="submit" class="btn btn-danger pull-right" value="Delete">
+</form>
