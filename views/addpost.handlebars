@@ -1,0 +1,11 @@
+<h5>Add Post</h5>
+{{#if error}} <span>{{error}}</span>{{/if}}
+<form method="POST" action="/post/add">
+  <div class="form-group">
+    <label for="">UserID</label>
+    <input type="text" name="id" class="form-control" placeholder="Add the ID of the user who write this post">
+    <label for="">Content</label>
+    <input type="text" name="content" class="form-control" placeholder="Post Content">
+  </div>
+  <input type="submit" class="btn btn-primary" value="Save">
+</form>

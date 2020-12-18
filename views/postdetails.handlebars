@@ -1,0 +1,14 @@
+<h5>{{post.id}}</h5>
+<ol class="list-group">
+  {{#each post}}
+  <li>{{this}}</li>
+  {{/each}}
+</ol>
+<a class="btn btn-primary" href="/">Back</a>
+
+<form class="form-inline" method="POST" action="/post/delete/{{post.id}}?_method=DELETE">
+  <div class="form-group">
+    <input type="text" name="content" class="form-control" placeholder="id#content">
+  </div>
+  <input type="submit" class="btn btn-danger" value="Delete">
+</form>

@@ -1,8 +1,16 @@
+<h2>{{#if error}} <span>{{error}}</span>{{/if}}</h2>
 <h5>Search Users</h5>
-{{#if error}} <span>{{error}}</span>{{/if}}
 <form class="form-inline" method="POST" action="/user/search">
   <div class="form-group">
-    <input type="text" name="id" class="form-control" placeholder="Search Users">
+    <input type="text" name="id" class="form-control" placeholder="eg. user1">
+  </div>
+  <input type="submit" class="btn btn-primary" value="Search">
+</form>
+<br>
+<h5>Search Posts</h5>
+<form class="form-inline" method="POST" action="/post/search">
+  <div class="form-group">
+    <input type="text" name="id" class="form-control" placeholder="eg. 'postsofuser1'">
   </div>
   <input type="submit" class="btn btn-primary" value="Search">
 </form>
