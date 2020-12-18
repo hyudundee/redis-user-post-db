@@ -2,7 +2,9 @@
 
 ### requirement as pdf
 
-https://github.com/hyudundee/mongodb-assignment/blob/master/class-related/requirement.pdf
+https://github.com/hyudundee/redis-user-post-db/blob/master/class-related/requirement.pdf
+
+### Video Demo
 
 ### UML
 
