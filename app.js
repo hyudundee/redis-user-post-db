@@ -32,6 +32,37 @@ app.get('/', function(req, res, next) {
   res.render('searchusers')
 })
 
+// get all user
+app.get('/user', function(req, res, next) {
+  let cursor = '0'
+  const pattern = 'user*'
+  client.scan(cursor, 'MATCH', pattern, 'COUNT', '1000', function(err, reply) {
+    if (err) {
+      console.log(err)
+    }
+    if (reply[1].length === 0) {
+      res.json({"msg": "Please seed the database before search!"})
+    }
+    const userids = reply[1]
+    let users = []
+    userids.forEach(id => {
+      client.hgetall(id, function(err, obj) {
+        if (!obj) {
+          res.render('searchusers', {
+            error: 'User does not exist'
+          })
+        } else {
+          obj.id = id
+          users.push(obj)
+          if (users.length === userids.length) {
+            res.render('getallusers', { users })
+          }
+        }
+      })
+    })
+  })
+})
+
 // search processing
 app.post('/user/search', function(req, res, next) {
   let id = req.body.id;
@@ -110,6 +141,41 @@ app.post('/post/search', function(req, res, next) {
     }
   })
 })
+
+// get all user
+app.get('/post', function(req, res, next) {
+  let cursor = '0'
+  const pattern = 'postsofuser*'
+  client.scan(cursor, 'MATCH', pattern, 'COUNT', '1000', function(err, reply) {
+    if (err) {
+      console.log(err)
+    }
+    if (reply[1].length === 0) {
+      res.json({"msg": "Please seed the database before search!"})
+    }
+    const postids = reply[1]
+    let posts = []
+    postids.forEach(id => {
+      client.hgetall(id, function(err, obj) {
+        client.lrange(id, 0, -1, function(err, obj) {
+        if (!obj) {
+          res.render('searchusers', {
+            error: 'Post does not exist'
+          })
+        } else {
+          obj.id = id
+          posts.push(obj)
+          if (posts.length === postids.length) {
+            res.render('getallposts', {posts})
+          }
+        }
+      })
+    })
+    })
+  })
+})
+
+
 // add post page
 app.get('/post/add', function(req, res, next) {
   res.render('addpost')
@@ -160,6 +226,12 @@ app.delete('/post/delete/:id', function(req, res, next){
   })
 })
 
+app.post('/reset', function(req, res, next) {
+  console.log(1)
+  client.flushdb(function(err, succeed) {
+    res.json({"msg": "succeed"})
+  })
+})
 
 // app listen on port 3000
 app.listen(port, function() {

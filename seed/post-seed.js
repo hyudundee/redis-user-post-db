@@ -13,11 +13,14 @@ for (let i = 0; i < posts.length; i++) {
   let content = post.content
 
   client.rpush(id, [
-    'content', content
+    content
   ], function(err, reply) {
     if(err) {
       console.log(err);
     }
     console.log(reply);
   })
+  if (i === 99) {
+    console.log('seeding finished, press ctrl + c to finish the process')
+  }
 }

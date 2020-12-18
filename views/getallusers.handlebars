@@ -1,0 +1,14 @@
+<br>
+<h4>All Users</h4>
+<br>
+<div class="container">
+  <ul class="list-group">
+    {{#each users}}
+    <li><strong>ID</strong> {{this.id}}</li>
+    <li><strong>Name: </strong>{{this.first_name}} {{this.last_name}}</li>
+    <li><strong>Email: </strong>{{this.email}}</li>
+    <li><strong>Phone: </strong>{{this.phone}}</li>
+    <br>
+    {{/each}}
+  </ul>
+</div>

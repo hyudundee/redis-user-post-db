@@ -27,20 +27,3 @@ for (let i = 0; i < users.length; i++) {
     console.log(reply);
   })
 }
-
-
-
-for (let i = 0; i < posts.length; i++) {
-  let post = posts[i]
-  let id = "post" + post.id
-  let content = post.content
-
-  client.hmset(id, [
-    'content', content
-  ], function(err, reply) {
-    if(err) {
-      console.log(err);
-    }
-    console.log(reply);
-  })
-}

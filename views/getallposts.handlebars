@@ -1,0 +1,16 @@
+<br>
+<h4>All Posts</h4>
+<br>
+<div class="container">
+  <ul class="list-group">
+    {{#each posts}}
+    <li><strong>ID</strong> {{this.id}}</li>
+    <ol class="list-group">
+      {{#each this}}
+      <li>{{this}}</li>
+      {{/each}}
+    </ol>
+    <br>
+    {{/each}}
+  </ul>
+</div>
