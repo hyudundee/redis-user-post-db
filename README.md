@@ -79,16 +79,16 @@ access the app via 'http://localhost:3000'
 
 populate data into database
 
-_cd seed_
-_node user-seed.js_
+- _cd seed_
+- _node user-seed.js_
 
 after a few seconds, ctrl + c to exit
 
-_node post-seed.js_
+- _node post-seed.js_
 
 after a few seconds, ctrl + c to exit
 
-_cd .._
-_npm start_
+- _cd .._
+- _npm start_
 
 - enjoy!
