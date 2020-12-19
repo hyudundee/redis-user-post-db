@@ -6,7 +6,6 @@ client.on('connect', function() {
   console.log('Connected to Redis')
 });
 
-
 for (let i = 0; i < posts.length; i++) {
   let post = posts[i]
   let id = "postsofuser" + post.id
