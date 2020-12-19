@@ -8,82 +8,62 @@ https://github.com/hyudundee/redis-user-post-db/blob/master/class-related/requir
 
 ### UML
 
-![image](https://github.com/hyudundee/user-db-sqlite3-ejs-express/blob/master/class-related/UML.png)
+```javascript
+user (1) <---> (0...1) posts <---> (0...n) posts
+```
 
 ### ERD
 
-![image](https://github.com/hyudundee/mongodb-assignment/blob/master/class-related/DataSchemaDesign.png)
+```javascript
+
+[id] is a number that marks both user and his/her posts
+
+user ->   user[id]
+{               \
+  first_name:    \
+  second_name:    \
+  email:           \
+  phone:            \
+}                    \
+post ->   postofuser[id]
+[
+  {
+    post1: {...}
+    post2: {...}
+    ...
+  }
+]
+```
 
 ### Definition of file data schema with proof that it is in BCNF.
 
 Define User's Schema
 
 ```javascript
-const UserSchema = new mongoose.Schema({
-	name: {
-		type: String,
-		required: true,
-	},
-	email: {
-		type: String,
-		required: true,
-	},
-	password: {
-		type: String,
-		required: true,
-	},
-	friends: [
-		{
-			user: {
-				type: Schema.Types.ObjectId,
-				ref: "users",
-			},
-			connectDate: {
-				type: Date,
-				default: Date.now,
-			},
-		},
-	],
-	createDate: {
-		type: Date,
-		default: Date.now,
-	},
-});
+
+{
+  "id":"user1",
+  "first_name":"Phillipe",
+  "last_name":"Rodenburgh",
+  "email":"prodenburgh0@sourceforge.net",
+  "phone":"373-767-1444"
+}
+
+
 ```
 
 Design of Posts' Schema
 
 ```javascript
-const PostSchema = new Schema({
-	user: {
-		type: Schema.Types.ObjectId,
-		ref: "users",
-	},
-	text: {
-		type: String,
-		required: true,
-	},
-	name: {
-		type: String,
-	},
-	createDate: {
-		type: Date,
-		default: Date.now,
-	},
-});
+{
+  "id":"postofuser1",
+  "content":"In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem. Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit. Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque. Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus."},
+
 ```
-
-### Mongo Atlas Post
-
-![image](https://github.com/hyudundee/mongodb-assignment/blob/master/class-related/MongoAtlas-Posts.png)
-
-### Mongo Atlas User
-
-![image](https://github.com/hyudundee/mongodb-assignment/blob/master/class-related/MongoAtlas-Users.png)
 
 ### The code of your basic application
 
-https://github.com/hyudundee/mongodb-assignment
+https://github.com/hyudundee/redis-user-post-db
 
 ### Overview of app
 
@@ -95,8 +75,8 @@ run
 
 - _npm install_
 
-- _npm run server_
+- _npm start_
 
-access the app via 'http://localhost:5000/users'
+access the app via 'http://localhost:3000'
 
 - enjoy!
