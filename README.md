@@ -6,6 +6,8 @@ https://github.com/hyudundee/redis-user-post-db/blob/master/class-related/requir
 
 ### Video Demo and Overview of app
 
+https://www.youtube.com/watch?v=SBJUzpN-X7I&t=1s
+
 ### UML
 
 ```javascript
