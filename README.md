@@ -4,7 +4,7 @@
 
 https://github.com/hyudundee/redis-user-post-db/blob/master/class-related/requirement.pdf
 
-### Video Demo
+### Video Demo and Overview of app
 
 ### UML
 
@@ -67,10 +67,6 @@ Design of Posts' Schema
 
 https://github.com/hyudundee/redis-user-post-db
 
-### Overview of app
-
-![image](https://github.com/hyudundee/mongodb-assignment/blob/master/class-related/Overview%20of%20app.png)
-
 ### First time install
 
 run
@@ -80,5 +76,19 @@ run
 - _npm start_
 
 access the app via 'http://localhost:3000'
+
+populate data into database
+
+_cd seed_
+_node user-seed.js_
+
+after a few seconds, ctrl + c to exit
+
+_node post-seed.js_
+
+after a few seconds, ctrl + c to exit
+
+_cd .._
+_npm start_
 
 - enjoy!
