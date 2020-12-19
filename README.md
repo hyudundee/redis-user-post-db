@@ -16,8 +16,10 @@ user (1) <---> (0...1) posts <---> (0...n) posts
 
 ```javascript
 
-[id] is a number that marks both user and his/her posts
-
+A numnber [id] is used to mark both user and his/her posts
+            \
+             \
+              \
 user ->   user[id]
 {               \
   first_name:    \
